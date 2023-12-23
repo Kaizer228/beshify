@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <title>🤸Beshify App🤸</title>
+  </head>
+  
+  <body>
+    <div class="container">
+      <h1>🤸Beshify App🤸</h1>
+      <input type="text" id="InputUser" placeholder="Enter text" />
+      <p id="Output"></p>
+      <button onclick="CopyText()">Copy</button>
+    </div>
+    <script>
+       let InputUser = document.getElementById("InputUser");
+        let Output = document.getElementById("Output");
+
+     InputUser.addEventListener('input',function() {
+      
+
+        let ConvertValue = InputUser.value;
+        let String = ConvertValue.replace(/ /g, "🤸");
+        Output.innerHTML = String;
+
+      
+     })
+
+      function CopyText() {
+        let Output = document.getElementById("Output");
+        let textArea = document.createElement("textarea");
+        textArea.value = Output.textContent;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textArea);
+        alert("Text copied to clipboard!");
+      }
+    </script>
+  </body>
+</html>
